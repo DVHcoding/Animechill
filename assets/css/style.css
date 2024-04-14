@@ -1,0 +1,1347 @@
+/*-----------------------------------*\
+ * #style.css
+\*-----------------------------------*/
+
+:root {
+
+    /**
+    * color
+    */
+
+    /**
+    * Typography
+    */
+
+    --ff-roboto: "Roboto",
+        sans-serif;
+
+    /**
+    * Transition
+    */
+
+    --transition-1: 0.25s ease;
+    --transition-2: 0.5s ease;
+    --cubic-out: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+    --cubic-in: cubic-bezier(0.33, 0.85, 0.56, 1.02);
+
+    /**
+    * spacing
+    */
+
+    --section-padding: 70px;
+
+}
+
+
+/*-----------------------------------*\
+ * #RESET CSS
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+a,
+img,
+span,
+table,
+button,
+ion-icon {
+    display: block;
+}
+
+input,
+button {
+    font: inherit;
+    background: none;
+    border: none;
+}
+
+input {
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+input:focus {
+    color: #8a8181;
+}
+
+button {
+    cursor: pointer;
+}
+
+html {
+    font-family: var(--ff-roboto);
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: white;
+    font-size: 1.6rem;
+    height: 100vh;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(0, 0%, 90%);
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 80%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(0, 0%, 75%);
+}
+
+/*-----------------------------------*\
+ * # SLICK SLIDER
+\*-----------------------------------*/
+
+.slick-next {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: #f6d182;
+    padding: 5px 3px;
+    color: rgb(86, 75, 91);
+}
+
+.slick-prev {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background-color: #f6d182;
+    padding: 5px 3px;
+    color: rgb(86, 75, 91);
+    z-index: 2;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 30px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 20px;
+    margin-bottom: 10px;
+}
+
+.slick-dots button {
+    font-size: 0;
+    /* width: 10px; */
+    /* height: 10px; */
+    width: 7px;
+    height: 7px;
+    background-color: #eee;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+}
+
+.slick-dots .slick-active button {
+    background-color: #8db9db;
+}
+
+/*-----------------------------------*\
+ * #HEADER
+\*-----------------------------------*/
+
+.header {
+    position: fixed;
+    width: 100%;
+    height: 55px;
+    background: white;
+    box-shadow: -4px 4px 6px 0px #D2DEE8;
+    display: flex;
+    align-items: center;
+    padding-inline: 15px;
+    z-index: 3;
+}
+
+.header .container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 105px;
+    height: 35px;
+    margin-right: auto;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.menu-open {
+    border: 2px solid rgb(172, 170, 170);
+    border-radius: 3px;
+    margin-inline-start: auto;
+    font-size: 2rem;
+}
+
+.user ion-icon {
+    margin-left: 20px;
+    font-size: 2.7rem;
+}
+
+
+.user:hover .user-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+.user {
+    position: relative;
+    height: 50px;
+    display: grid;
+    place-items: center;
+}
+
+.user::after {
+    content: "";
+    background-color: red;
+    width: 170px;
+    height: 40px;
+    position: absolute;
+    top: 52px;
+    opacity: 0;
+}
+
+.user-list {
+    position: absolute;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    right: -13px;
+    top: 55px;
+    width: 120px;
+    border: 1px solid #eeee;
+    font-size: 1.4rem;
+    display: none;
+}
+
+.chapter-read {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+
+.chapter-read a:hover {
+    color: #b34e00;
+}
+
+.btn-action button:hover,
+.btn-action .login:hover {
+    color: #b34e00;
+}
+
+.navbar {
+    position: fixed;
+    /* top: 5.7rem; */
+    top: -200px;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    z-index: 4;
+    visibility: hidden;
+}
+
+.navbar-list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 20px;
+    margin-block-start: 10px;
+}
+
+.navbar-item {
+    width: 100%;
+}
+
+.comic-list,
+.comic-list #danh-sach,
+.top-comic-icon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+#danh-sach {
+    transition: var(--transition-1);
+}
+
+.comic-list div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.hot-comic-list {
+    display: none;
+    margin-top: 15px;
+    background-color: white;
+    width: 100%;
+    padding-inline: 10px;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.hot-comic-item {
+    padding: 5px;
+}
+
+.comic-link:hover {
+    color: #b34e00;
+}
+
+.comic-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 5px;
+    border-left: 1px solid #ABA5A5;
+}
+
+#danh-sach.active {
+    padding: 3px;
+    background-color: #EF4444;
+    color: white;
+    border-radius: 3px;
+}
+
+.hot-comic-list.active {
+    display: flex;
+}
+
+.navbar.active {
+    top: 5.7rem;
+    visibility: visible;
+}
+
+
+.search {
+    display: none !important;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #eee;
+    padding-block: 5px;
+    padding-inline: 10px;
+    border-radius: 5px;
+    width: 400px;
+    margin-left: 50px;
+}
+
+.search::placeholder {
+    border: none;
+}
+
+/*-----------------------------------*\
+ * #TOP VIEW
+\*-----------------------------------*/
+
+.content {
+    padding-inline: 15px;
+}
+
+.top-view {
+    padding-block-start: var(--section-padding);
+}
+
+.top-view_title,
+.new-comic_title,
+.success-comic_title,
+.upcoming_title,
+.manga_title {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #1FAAB3;
+    font-size: 1.5rem;
+    min-width: max-content;
+    padding-inline: 5px;
+    border-left: 3px solid #1FAAB3;
+    margin-top: 20px;
+}
+
+.slider-img {
+    position: relative;
+}
+
+.slider-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.top-view_view {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: white;
+    background-color: #3BA3B1;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.top-view_subtitle {
+    display: none;
+    margin-top: 5px;
+    text-transform: uppercase;
+    color: #E94444;
+}
+
+.top-view_slider {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+}
+
+/*-----------------------------------*\
+ * # NEW COMIC
+\*-----------------------------------*/
+
+
+.new-comic_img {
+    max-width: 100%;
+    position: relative;
+}
+
+.new-comic_img img {
+    width: 84px;
+    height: 140px;
+    object-fit: cover;
+}
+
+.new-comic_view {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: white;
+    background-color: #E94444;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    border-radius: 3px;
+    font-size: 8px;
+}
+
+.new-comic_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5px;
+    row-gap: 15px;
+}
+
+.new-comic_item {
+    display: flex;
+    gap: 5px;
+}
+
+.new-comic_content {
+    font-size: 1rem;
+    width: 100%;
+}
+
+.new-comic_content-title a {
+    color: #E94444;
+    --max-lines: 2;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--max-lines);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.new-comic_content-view {
+    font-size: 8px;
+    color: rgba(143, 143, 143, 0.908);
+}
+
+.chapter-list {
+    margin-top: 10px;
+}
+
+.chapter-item {
+    padding-block: 2px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.chapter-link {
+    text-decoration: underline;
+}
+
+.chapter-time {
+    color: #ABA5A5;
+    font-size: 10px;
+    display: none;
+}
+
+.chapter-link.active {
+    font-weight: bold;
+}
+
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 10px;
+    margin-top: 30px;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.pagination a:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.pagination a:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
+/*-----------------------------------*\
+ * # SUCCESS COMIC 
+\*-----------------------------------*/
+
+.success-comic_title,
+.manga_title {
+    color: #3B40B1;
+    border-left: 3px solid #3B40B1;
+}
+
+.new-comic_title {
+    color: #E94444;
+    border-left: 3px solid #E94444;
+}
+
+.success-comic_link {
+    position: relative;
+}
+
+.success-comic_link img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.has-scrollbar {
+    display: flex;
+    gap: 5px;
+    overflow: auto;
+    scroll-snap-type: inline mandatory;
+}
+
+.has-scrollbar>li {
+    min-width: calc(100% / 3);
+    margin-bottom: 10px;
+    scroll-snap-align: start;
+}
+
+.has-scrollbar::-webkit-scrollbar {
+    height: 10px;
+}
+
+.has-scrollbar::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 20px;
+    outline: 2px solid #3B40B1;
+}
+
+.has-scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    border: 2px solid white;
+    background: #3B40B1;
+}
+
+.has-scrollbar::-webkit-scrollbar-button {
+    width: calc(25% - 40px);
+}
+
+.success-comic_view,
+.manga_view {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    color: white;
+    gap: 3px;
+    background-color: #3B40B1;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.success-comic_view ion-icon {
+    font-size: 15px;
+}
+
+/*-----------------------------------*\
+ * # UP COMING
+\*-----------------------------------*/
+
+.upcoming_link img,
+.manga_link img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.slick-slide {
+    margin-right: 5px;
+}
+
+.upcoming_link {
+    position: relative;
+}
+
+.upcoming_view {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    color: white;
+    gap: 3px;
+    background-color: #1FAAB3;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    font-size: 12px;
+
+}
+
+/*-----------------------------------*\
+ * # MANGA 
+\*-----------------------------------*/
+
+.manga {
+    margin-top: 35px;
+}
+
+.manga_link {
+    position: relative;
+}
+
+/*-----------------------------------*\
+ * # FOOTER 
+\*-----------------------------------*/
+
+.footer {
+    margin-top: 40px;
+    background-color: #151414;
+}
+
+.footer-top {
+    display: grid;
+    row-gap: 10px;
+}
+
+.footer-title {
+    font-size: 1.4rem;
+    max-width: max-content;
+    padding-block: 5px;
+    margin-block: 10px;
+    border-bottom: 2px solid rgb(255, 115, 0);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.media-icon {
+    display: flex;
+    gap: 8px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+.media-icon ion-icon:hover {
+    transform: scale(1.1);
+}
+
+.action-link {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.action-link a {
+    transition: var(--transition-1);
+    color: white;
+    max-width: max-content;
+}
+
+.action-link a:hover {
+    color: #ff5e14;
+    text-decoration: underline;
+}
+
+.subscribe-input {
+    display: flex;
+    background-color: #2e2e2e;
+}
+
+.subscribe-input input {
+    margin-left: 10px;
+}
+
+.subscribe-input input:focus {
+    color: white;
+}
+
+.subscribe-input ion-icon {
+    padding: 10px 10px;
+    background-color: #ff5e14;
+    color: white;
+}
+
+.footer-bottom {
+    color: #878787;
+    margin-top: 20px;
+    background-color: #202020;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: 50px;
+}
+
+.footer-bottom a {
+    color: #ff5e14;
+    text-decoration: underline;
+}
+
+
+/* scroll top */
+.scroll-top {
+    position: fixed;
+    background-color: #8db9db;
+    color: white;
+    max-width: max-content;
+    padding: 10px;
+    border-radius: 50%;
+    bottom: 55px;
+    right: 20px;
+    display: none;
+    transition: var(--transition-1);
+}
+
+.scroll-top:hover {
+    background-color: #3B40B1;
+}
+
+.scroll-top.active {
+    display: block;
+}
+
+/*-----------------------------------*\
+ * # MEDIA QUERIES 
+\*-----------------------------------*/
+
+@media(min-width: 450px) {
+
+    /*-----------------------------------*\
+     * # NEW COMIC 
+    \*-----------------------------------*/
+    .new-comic_img img {
+        width: 90px;
+    }
+
+    .new-comic_content {
+        font-size: 1.2rem;
+    }
+
+    .new-comic_content-title a {
+        font-size: 1.3rem;
+    }
+}
+
+@media(min-width: 600px) {
+
+    /*-----------------------------------*\
+     * # HEADER 
+    \*-----------------------------------*/
+    .search {
+        display: flex !important;
+        width: 300px;
+    }
+
+    .navbar-list {
+        margin-bottom: 10px;
+    }
+
+    /*-----------------------------------*\
+     * # NEW COMIC 
+    \*-----------------------------------*/
+
+    .new-comic_img img {
+        width: 105px;
+        height: auto;
+    }
+
+
+    .new-comic_list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .new-comic_content-view {
+        font-size: 10px;
+        margin-top: 5px;
+    }
+
+    .new-comic_content-title a {
+        font-size: 1.3rem;
+    }
+
+    .pagination {
+        font-size: 12px;
+    }
+
+
+    .chapter-list {
+        min-width: max-content;
+    }
+
+    /*-----------------------------------*\
+     * # SUCCESS COMIC 
+    \*-----------------------------------*/
+
+    .success-comic_link img {
+        height: 200px;
+    }
+
+    .has-scrollbar>li {
+        min-width: calc(100% / 4);
+    }
+
+    /*-----------------------------------*\
+     * # FOOTER 
+    \*-----------------------------------*/
+
+    .footer-top {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+}
+
+@media(min-width: 768px) {
+
+    .search {
+        width: 200px;
+    }
+
+    /*-----------------------------------*\
+     * # HEADER 
+    \*-----------------------------------*/
+
+    .menu-open {
+        display: none;
+    }
+
+    .hot-comic-list {
+        position: fixed;
+        max-width: calc(100% - 250px);
+        border-radius: 3px;
+    }
+
+    .comic-list {
+        all: unset;
+        display: flex;
+        align-items: center;
+        gap: 50px;
+
+    }
+
+    .comic-box {
+        justify-content: flex-start;
+    }
+
+    .navbar {
+        all: unset;
+        width: 100%;
+        margin-bottom: 3px;
+    }
+
+
+    /*-----------------------------------*\
+     * # NEW COMIC 
+    \*-----------------------------------*/
+
+    .success-comic_link img {
+        height: 200px;
+    }
+
+    .has-scrollbar>li {
+        min-width: calc(100% / 4);
+    }
+
+    .new-comic_img img {
+        width: 130px;
+        height: auto;
+    }
+
+    .new-comic_list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .new-comic_content-title a {
+        font-size: 1.4rem;
+    }
+
+    /*-----------------------------------*\
+     * # SUCCESS COMIC 
+    \*-----------------------------------*/
+
+    .success-comic_link img,
+    .upcoming_link img,
+    .manga_link img {
+        height: 250px;
+    }
+
+
+    /* scroll-top */
+    .scroll-top {
+        padding: 15px;
+        right: 30px;
+    }
+}
+
+@media(min-width: 900px) {
+
+    .search {
+        width: 340px;
+    }
+
+    .content {
+        padding-inline: 30px;
+    }
+
+    .main-top {
+        display: grid;
+        grid-template-areas: 'newComic topView'
+            'newComic pagination';
+    }
+
+    /*-----------------------------------*\
+     * #TOP VIEW
+    \*-----------------------------------*/
+    .top-view_title {
+        margin-right: 22rem;
+    }
+
+    .top-view .container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .top-view_slider {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 20px;
+    }
+
+    .slider-img {
+        width: 300px;
+        height: 200px;
+    }
+
+    .slider-img img {
+        width: 90%;
+        height: 80%;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .top-view {
+        grid-area: topView;
+    }
+
+    .top-view_view {
+        top: 5px;
+        left: 10px;
+        background-color: #3BA3B1;
+        padding: 8px;
+        font-size: 1.3rem;
+    }
+
+    .top-view_subtitle {
+        display: block;
+    }
+
+    /*-----------------------------------*\
+     * #NEW COMIC
+    \*-----------------------------------*/
+    .new-comic_img img {
+        width: 125px;
+    }
+
+    .new-comic_list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .new-comic_view {
+        top: 5px;
+        left: 10px;
+        padding: 8px;
+        font-size: 1.3rem;
+    }
+
+    .new-comic_view ion-icon {
+        font-size: 1.5rem;
+    }
+
+    .new-comic_content-view {
+        font-size: 13px;
+    }
+
+    .new-comic_content {
+        font-size: 1.3rem;
+    }
+
+    .new-comic_content-title a {
+        font-size: 1.4rem;
+    }
+
+    .new-comic {
+        grid-area: newComic;
+        margin-top: 65px;
+    }
+
+    .pagination {
+        grid-area: pagination;
+        place-items: end;
+        margin-right: 30px;
+    }
+
+
+    .chapter-time {
+        display: block;
+    }
+
+    /*-----------------------------------*\
+     * # SUCCESS COMIC 
+    \*-----------------------------------*/
+    .has-scrollbar>li {
+        min-width: calc(100% / 5);
+    }
+
+    /*-----------------------------------*\
+     * # UP COMING
+    \*-----------------------------------*/
+    .upcoming_link img,
+    .manga_link img {
+        width: 100%;
+        height: 300px;
+    }
+
+    .upcoming_view {
+        top: 5px;
+        left: 10px;
+        padding: 8px;
+        font-size: 1.3rem;
+    }
+
+    /*-----------------------------------*\
+     * # MANGA 
+    \*-----------------------------------*/
+
+    .manga_view {
+        top: 5px;
+        left: 10px;
+        padding: 8px;
+        font-size: 1.3rem;
+    }
+
+
+}
+
+@media(min-width: 1024px) {
+
+    .slick-dots {
+        margin-bottom: 0;
+    }
+
+    .slick-dots button {
+
+        width: 10px;
+        height: 10px;
+
+    }
+
+    .search {
+        width: 400px;
+    }
+
+    .content {
+        padding-inline: 30px;
+    }
+
+    /*-----------------------------------*\
+     * #NEW COMIC
+    \*-----------------------------------*/
+
+    .new-comic_list {
+        gap: 50px
+    }
+
+    .new-comic_img img {
+        width: 155px;
+    }
+
+    .new-comic_content {
+        font-size: 1.6rem;
+    }
+
+    .new-comic_content-title a {
+        font-size: 1.6rem;
+    }
+
+    .new-comic_content-view {
+        font-size: 1.5rem !important;
+    }
+
+    .chapter-list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+    }
+
+    .chapter-time {
+        font-size: 1.3rem !important;
+    }
+
+    /*-----------------------------------*\
+     * #TOP VIEW
+    \*-----------------------------------*/
+    .slider-img {
+        width: 300px;
+        height: 180px;
+    }
+
+    .slider-img img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .top-view_slider {
+        row-gap: 6rem;
+    }
+
+
+    .manga {
+        margin-top: 50px;
+    }
+
+
+    /*-----------------------------------*\
+     * # FOOTER 
+    \*-----------------------------------*/
+
+    .footer-top {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer-title {
+        font-size: 1.8rem;
+    }
+
+    .media-icon {
+        font-size: 2.5rem;
+    }
+}
+
+@media(min-width: 1200px) {
+
+    .hot-comic-list {
+        max-width: calc(100% - 350px);
+    }
+
+    .top-view_title,
+    .new-comic_title,
+    .success-comic_title,
+    .upcoming_title,
+    .manga_title {
+        font-size: 2.3rem;
+        margin-top: 50px;
+    }
+
+    /*-----------------------------------*\
+     * #NEW COMIC
+    \*-----------------------------------*/
+    .new-comic_img img {
+        width: 180px;
+        height: 100%;
+    }
+
+    .new-comic_content {
+        font-size: 1.5rem;
+    }
+
+    .new-comic_content-title a {
+        font-size: 1.7rem;
+    }
+
+    .new-comic_item {
+        gap: 20px;
+    }
+
+    .new-comic_content-view {
+        font-size: 1.8rem;
+    }
+
+    .chapter-time {
+        font-size: 1.5rem;
+    }
+
+    .pagination {
+        font-size: 15px;
+    }
+
+
+    /*-----------------------------------*\
+     * #TOP VIEW
+    \*-----------------------------------*/
+    .top-view .container {
+        max-width: max-content;
+        align-items: flex-start;
+    }
+
+    .slider-img {
+        width: 300px;
+        height: 180px;
+    }
+
+    .slider-img img {
+        width: 100%;
+        height: 100%;
+    }
+
+    /*-----------------------------------*\
+     * # SUCCESS COMIC 
+    \*-----------------------------------*/
+
+    .success-comic_link img {
+        height: 300px;
+    }
+
+    .has-scrollbar>li {
+        min-width: calc(100% / 6);
+    }
+}
+
+@media(min-width: 1400px) {
+
+    /*-----------------------------------*\
+     * # HEADER 
+    \*-----------------------------------*/
+
+    .header .container {
+        padding-inline: 180px;
+    }
+
+    .hot-comic-list {
+        max-width: calc(100% - 500px);
+    }
+
+    .article {
+        padding-inline: 180px;
+    }
+
+    /*-----------------------------------*\
+     * # NEW COMIC
+    \*-----------------------------------*/
+    .new-comic_content-title a {
+        font-size: 1.7rem;
+    }
+
+    /*-----------------------------------*\
+     * # UP COMING, MANGA
+    \*-----------------------------------*/
+    .upcoming_link img,
+    .manga_link img {
+        height: 250px;
+    }
+
+    /*-----------------------------------*\
+     * # FOOTER 
+    \*-----------------------------------*/
+
+    .footer {
+        padding-inline: 210px;
+    }
+
+    .footer .container {
+        padding-inline: 0;
+    }
+
+    .footer-bottom {
+        font-size: 1.3rem;
+    }
+
+}
