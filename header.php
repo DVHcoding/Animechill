@@ -1,6 +1,7 @@
 <?php
-if (isset($_SESSION[ 'user' ]) && $_SESSION[ 'user' ] != '') {
-    $username = $_SESSION[ 'user' ][ 0 ];
+if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
+    $username = $_SESSION['user'][0];
+    $email    = $_SESSION['user'][1];
 }
 
 
@@ -8,11 +9,13 @@ if (isset($_SESSION[ 'user' ]) && $_SESSION[ 'user' ] != '') {
  * Dang xuat
  */
 
-if (isset($_POST[ 'logout' ])) {
+if (isset($_POST['logout'])) {
     session_destroy();
     echo '<script>location.href="login.php"</script>';
 }
 ?>
+
+<?php include ('./assets/controller/function_header.php') ?>
 
 <header class="header" style="top: 0;">
     <div class="container">
@@ -50,7 +53,6 @@ if (isset($_POST[ 'logout' ])) {
 
 
 
-                    <?php include('./assets/controller/function_header.php') ?>
                     <?php get_category() ?>
                     <ul class="hot-comic-list" id="hot-comic-list">
 
@@ -61,9 +63,9 @@ if (isset($_POST[ 'logout' ])) {
                         <div class="comic-box">
                             <?php foreach ($result_category as $row) { ?>
                                 <li class="hot-comic-item">
-                                    <a href="category_comic.php?category_id=<?= $row[ 'category_id' ] ?>&cate_name=<?= $row[ 'category_name' ] ?>"
+                                    <a href="category_comic.php?category_id=<?= $row['category_id'] ?>&cate_name=<?= $row['category_name'] ?>"
                                         class="comic-link">
-                                        <?= $row[ 'category_name' ] ?>
+                                        <?= $row['category_name'] ?>
                                     </a>
                                 </li>
                             <?php } ?>
@@ -78,7 +80,7 @@ if (isset($_POST[ 'logout' ])) {
             <div class="user-list">
                 <div class="user-name">
                     <span>
-                        <?php if (isset($_SESSION[ 'user' ]) && $_SESSION[ 'user' ] != '') {
+                        <?php if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
                             echo $username;
                         } else {
                             echo 'Guest';
@@ -86,14 +88,25 @@ if (isset($_POST[ 'logout' ])) {
                     </span>
                 </div>
                 <div class="chapter-read">
-                    <?php if (isset($_SESSION[ 'user' ]) && $_SESSION[ 'user' ] != '') {
+                    <?php if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
                         echo '<a href="read_comic.php">Truyện đã đọc</a>';
                     } else {
                         echo '';
                     } ?>
                 </div>
+
+                <?php if (isset($_SESSION['user']) && $_SESSION['user'] !== '') { ?>
+                    <?php get_coin($_SESSION['user'][1]) ?>
+
+                    <div class="coin">
+                        <img src="./assets/imgs/icons/gemstone.png" alt="">
+                        <span><?= $result_select_coin ?></span>
+                    </div>
+
+                <?php } ?>
+
                 <form action="" method="POST" class="btn-action">
-                    <?php if (isset($_SESSION[ 'user' ]) && $_SESSION[ 'user' ] != '') {
+                    <?php if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
                         echo '<button type="submit" name="logout">Đăng xuất</button>';
                     } else {
                         echo '<a href="login.php" class="login">Đăng nhập</a>';

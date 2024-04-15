@@ -249,11 +249,6 @@ body {
     display: none;
 }
 
-.chapter-read {
-    border-bottom: 2px solid #eee;
-    padding-bottom: 5px;
-}
-
 .chapter-read a:hover {
     color: #b34e00;
 }
@@ -369,6 +364,20 @@ body {
 .search::placeholder {
     border: none;
 }
+
+/* Coin */
+.coin {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+
+.coin img {
+    width: 1.8rem;
+}
+
 
 /*-----------------------------------*\
  * #TOP VIEW

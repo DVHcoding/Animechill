@@ -23,7 +23,7 @@ $csstime = date("Y-m-d\TH-i", $csstime);
         rel="stylesheet">
 
     <!-- Link css -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css?<?= $csstime ?>">
     <link rel="stylesheet" href="./assets/css/product.css?<?= $csstime ?>">
     <!-- Slick slider-->
 
@@ -38,12 +38,12 @@ $csstime = date("Y-m-d\TH-i", $csstime);
 <body>
 
     <!-- HEADER -->
-    <?php include('./header.php') ?>
+    <?php include ('./header.php') ?>
 
     <main class="content">
         <article>
 
-            <?php include('./assets/controller/function_frontend.php'); ?>
+            <?php include ('./assets/controller/function_frontend.php'); ?>
             <?php select_product() ?>
 
             <!-- PRODUCT DETAIL -->
@@ -133,17 +133,23 @@ $csstime = date("Y-m-d\TH-i", $csstime);
                                 </li>
                             </ul>
 
-                            <form action="" method="POST">
-                                <button class="first-read" type="submit" name="first_read">
-                                    <ion-icon name="book"></ion-icon>
-                                    <span>Đọc Truyện</span>
-                                </button>
-
-                                <!-- <button class="continue-read">
+                            <?php
+                            if ($premium !== 1 || $bought === 'bought') { ?>
+                                <form action="" method="POST" id="premium_form">
+                                    <button class="first-read" type="submit" name="first_read">
                                         <ion-icon name="book"></ion-icon>
-                                        <span>Đọc tiếp</span>
-                                    </button> -->
-                            </form>
+                                        <span>Đọc Truyện</span>
+                                    </button>
+                                </form>
+
+                            <?php } else { ?>
+                                <form action="" method="POST" id="premium_form">
+                                    <button class="continue-read" type="submit" name="buy_premium">
+                                        <img src="./assets/imgs/icons/gemstone.png" alt="coin">
+                                        <span><?= $comic_price ?></span>
+                                    </button>
+                                </form>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -182,13 +188,21 @@ $csstime = date("Y-m-d\TH-i", $csstime);
 
                         <?php foreach ($result_select_chapter as $row) { ?>
                             <li class="chapter-item">
-                                <a href="detail_product.php?comic_id=<?= $comic_id ?>&chapter=<?= $row['id'] ?>"
-                                    class="item-title <?php echo ($chapter_latest == $row['id']) ? ' active' : '' ?>">
-                                    <?= $row['chapter_number'] ?>
-                                </a>
-                                <span class="item-time">
-                                    <?= $row['chapter_date'] ?>
-                                </span>
+
+                                <?php
+                                if ($premium !== 1 || $bought === 'bought') { ?>
+                                    <a href="detail_product.php?comic_id=<?= $comic_id ?>&chapter=<?= $row['id'] ?>"
+                                        class="item-title <?php echo ($chapter_latest == $row['id']) ? ' active' : '' ?>">
+                                        <?= $row['chapter_number'] ?>
+                                    </a>
+                                    <span class="item-time">
+                                        <?= $row['chapter_date'] ?>
+                                    </span>
+                                <?php } else { ?>
+                                    <p class="item-title" onclick=showAlert()><?= $row['chapter_number'] ?></p>
+                                    <ion-icon name="lock-closed-outline"></ion-icon>
+                                <?php } ?>
+
                             </li>
                         <?php } ?>
                     </ul>
@@ -253,13 +267,18 @@ $csstime = date("Y-m-d\TH-i", $csstime);
     </main>
 
     <!-- FOOTER -->
-    <?php include('./footer.php') ?>
+    <?php include ('./footer.php') ?>
 
     <!-- SCROLL-TOP -->
     <a href="#top" class="scroll-top" data-scroll-top>
         <ion-icon name="arrow-up-outline"></ion-icon>
     </a>
 
+    <script>
+        function showAlert() {
+            alert("Vui lòng mua truyện trước!")
+        }
+    </script>
 
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"

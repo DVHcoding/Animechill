@@ -14,6 +14,6 @@ try {
     $pdo->exec('SET NAMES utf8');
     $pdo->exec('SET CHARACTER SET utf8');
 } catch (PDOException $e) {
-    echo 'Error: '.$e->getMessage();
+    echo 'Error: ' . $e->getMessage();
 }
 ?>
