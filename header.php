@@ -27,6 +27,8 @@ if (isset($_POST['logout'])) {
             <ion-icon name="menu-outline"></ion-icon>
         </button>
 
+
+
         <nav class="navbar" id="navbar">
             <div class="navbar-list">
                 <ul class="navbar-item">
@@ -50,7 +52,6 @@ if (isset($_POST['logout'])) {
                             </button>
                         </form>
                     </div>
-
 
 
                     <?php get_category() ?>
@@ -102,7 +103,12 @@ if (isset($_POST['logout'])) {
                         <img src="./assets/imgs/icons/gemstone.png" alt="">
                         <span><?= $result_select_coin ?></span>
                     </div>
+                <?php } ?>
 
+                <?php if (isset($_SESSION['user']) && $_SESSION['user'] !== '') { ?>
+                    <a href="bank.php">
+                        <button class="buy-gem">Nạp tiền</button>
+                    </a>
                 <?php } ?>
 
                 <form action="" method="POST" class="btn-action">

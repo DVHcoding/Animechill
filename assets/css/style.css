@@ -378,6 +378,13 @@ body {
     width: 1.8rem;
 }
 
+.buy-gem {
+    background-color: #a514ff;
+    color: white;
+    padding: 0.4rem;
+    border-radius: 0.3rem;
+}
+
 
 /*-----------------------------------*\
  * #TOP VIEW
