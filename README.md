@@ -3,7 +3,7 @@
   <p>
    Good story reading website with many story genres and completely free. Access details here 
   </p>
-  <a href="https://DVHcoding.github.io/Animechill/"><strong>➥ Live Demo</strong></a>
+  <a href="https://animechill.great-site.net/"><strong>➥ Live Demo</strong></a>
 </div>
 
 <br />
