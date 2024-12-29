@@ -398,7 +398,6 @@ function comment()
     }
 }
 
-
 // login & sign-up forms
 function login()
 {

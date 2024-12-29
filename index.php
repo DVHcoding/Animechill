@@ -37,6 +37,7 @@ $csstime = date("Y-m-d\TH-i", $csstime);
     <!-- HEADER -->
     <?php include('./header.php') ?>
 
+    <!-- MAIN -->
     <main>
         <div class="article">
             <div class="main-top">
@@ -79,7 +80,7 @@ $csstime = date("Y-m-d\TH-i", $csstime);
 
                                 <?php
                                 $databaseDate = new DateTime($row['comic_date']);
-                                $currentDate = new DateTime();
+                                $currentDate  = new DateTime();
 
                                 $interval = $currentDate->diff($databaseDate);
                                 ?>
@@ -120,13 +121,13 @@ $csstime = date("Y-m-d\TH-i", $csstime);
                                          * Lấy ra chapter mới nhất 
                                          */
 
-                                        $comic_id = $row['comic_id'];
+                                        $comic_id                  = $row['comic_id'];
                                         $query_chapter_latest_date = "SELECT *
                                                                       FROM chapter
                                                                       WHERE comic_id = ?
                                                                       ORDER BY ABS(DATEDIFF(NOW(), chapter_date))  /*Hàm DATEDIFF trong SQL được sử dụng để tính toán sự chênh lệch giữa hai ngày.*/
                                                                       LIMIT 1";                                    /*Hàm ABS lấy giá trị tuyệt đối, đảm bảo rằng số k dc âm */
-                                        $stmt_chapter_latest_date = $pdo->prepare($query_chapter_latest_date);
+                                        $stmt_chapter_latest_date  = $pdo->prepare($query_chapter_latest_date);
                                         $stmt_chapter_latest_date->execute([$comic_id]);
                                         $row_chapter = $stmt_chapter_latest_date->rowCount();
                                         if ($row_chapter < 1) {
@@ -145,7 +146,7 @@ $csstime = date("Y-m-d\TH-i", $csstime);
                                                           FROM chapter
                                                           INNER JOIN comic ON chapter.comic_id = comic.comic_id 
                                                           WHERE comic.comic_id = $comic_id  ORDER BY chapter.chapter_id ASC LIMIT 4";
-                                        $stmt_chapter = $pdo->prepare($query_chapter);
+                                        $stmt_chapter  = $pdo->prepare($query_chapter);
                                         $stmt_chapter->execute();
                                         $result_chapter = $stmt_chapter->fetchAll(PDO::FETCH_ASSOC);
                                         ?>
@@ -180,8 +181,8 @@ $csstime = date("Y-m-d\TH-i", $csstime);
                 <?php
                 // Hien thi 3 nut [1][2][3];
                 $num_visible_pages = 3;
-                $start_page = max(1, $page - floor($num_visible_pages / 2));
-                $end_page = min($start_page + $num_visible_pages - 1, $total_pages);
+                $start_page        = max(1, $page - floor($num_visible_pages / 2));
+                $end_page          = min($start_page + $num_visible_pages - 1, $total_pages);
 
                 ?>
                 <div class="pagination">

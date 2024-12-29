@@ -6,13 +6,17 @@ $dbname = 'animechill';
 $dbuser = 'root';
 $dbpass = '';
 
+// Giúp không lỗi font tiếng việt
+$opt = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
+
 try {
-    $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
+    $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass, $opt);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Thiết lập bộ ký tự UTF-8
-    $pdo->exec('SET NAMES utf8');
-    $pdo->exec('SET CHARACTER SET utf8');
 } catch (PDOException $e) {
     echo 'Error: ' . $e->getMessage();
 }
