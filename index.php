@@ -37,7 +37,6 @@ $csstime = date("Y-m-d\TH-i", $csstime);
     <!-- HEADER -->
     <?php include('./header.php') ?>
 
-    <!-- MAIN -->
     <main>
         <div class="article">
             <div class="main-top">
