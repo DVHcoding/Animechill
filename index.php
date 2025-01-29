@@ -45,6 +45,7 @@ $csstime = date("Y-m-d\TH-i", $csstime);
                 <?php include('./assets/controller/function_frontend.php') ?>
                 <?php select_comic() ?>
 
+                <!-- TOP VIEW -->
                 <div class="top-view content" id="top-view">
                     <div class="container">
                         <h3 class="top-view_title">
