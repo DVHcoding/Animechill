@@ -139,9 +139,7 @@ $csstime = date("Y-m-d\TH-i", $csstime);
                                             }
                                         }
 
-                                        /**
-                                         * Lấy số chapter tương ứng cho từng id truyện, giới hạn 4 chap
-                                         */
+
                                         $query_chapter = "SELECT * 
                                                           FROM chapter
                                                           INNER JOIN comic ON chapter.comic_id = comic.comic_id 
