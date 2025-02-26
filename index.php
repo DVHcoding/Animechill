@@ -71,6 +71,7 @@ $csstime = date("Y-m-d\TH-i", $csstime);
                 </div>
 
 
+                <!-- NEW COMIC -->
                 <div class="new-comic content" id="new-comic">
                     <div class="container">
                         <h3 class="new-comic_title">Truyện Mới</h3>
