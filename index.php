@@ -177,6 +177,7 @@ $csstime = date("Y-m-d\TH-i", $csstime);
                     </div>
                 </div>
 
+                <!-- PAGINATION -->
                 <?php
                 // Hien thi 3 nut [1][2][3];
                 $num_visible_pages = 3;
