@@ -552,7 +552,6 @@ function select_user()
     $result_users = $stmt_select_user->fetchAll(PDO::FETCH_ASSOC);
 }
 
-// delete user at user.php file
 function delete_user()
 {
     include __DIR__ . '/../../database/config.php';
