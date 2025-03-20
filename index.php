@@ -198,6 +198,7 @@ $csstime = date("Y-m-d\TH-i", $csstime);
                 </div>
             </div>
 
+            <!-- SUCCESS COMIC -->
             <div class="success-comic content" id="success-comic">
                 <div class="container">
                     <h3 class="success-comic_title">Đã hoàn thành</h3>
