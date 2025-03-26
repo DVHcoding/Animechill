@@ -1,7 +1,6 @@
 <?php
 
 
-// Hiển thị category ở file category.php
 function select_category()
 {
     include __DIR__ . '/../../database/config.php';
@@ -36,7 +35,6 @@ function create_category()
         echo '<script>location.href="../category.php?link=category";</script>';
     }
 }
-
 
 // Xóa category ở file category.php
 function delete_category()
