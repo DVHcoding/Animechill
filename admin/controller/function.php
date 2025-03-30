@@ -1,6 +1,7 @@
 <?php
 
 
+// Hiển thị category ở file category.php
 function select_category()
 {
     include __DIR__ . '/../../database/config.php';
