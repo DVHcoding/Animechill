@@ -1,5 +1,6 @@
 <?php
 
+// select comic at index.php file
 function select_comic()
 {
     include ('./database/config.php');
