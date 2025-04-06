@@ -62,7 +62,12 @@ function select_comic()
     $result_chapter = $stmt_chapter->fetchAll(PDO::FETCH_ASSOC);
 
     // Truy vấn Manga
-
+    $query_manga = "SELECT * 
+                    FROM comic
+                    INNER JOIN comic_category ON comic.comic_id = comic_category.comic_id AND comic_category.category_id = 10";
+    $stmt_manga  = $pdo->prepare($query_manga);
+    $stmt_manga->execute();
+    $result_manga = $stmt_manga->fetchAll(PDO::FETCH_ASSOC);
 
 }
 
