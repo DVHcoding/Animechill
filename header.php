@@ -96,21 +96,6 @@ if (isset($_POST['logout'])) {
                     } ?>
                 </div>
 
-                <?php if (isset($_SESSION['user']) && $_SESSION['user'] !== '') { ?>
-                    <?php get_coin($_SESSION['user'][1]) ?>
-
-                    <div class="coin">
-                        <img src="./assets/imgs/icons/gemstone.png" alt="">
-                        <span><?= $result_select_coin ?></span>
-                    </div>
-                <?php } ?>
-
-                <?php if (isset($_SESSION['user']) && $_SESSION['user'] !== '') { ?>
-                    <a href="bank.php">
-                        <button class="buy-gem">Nạp tiền</button>
-                    </a>
-                <?php } ?>
-
                 <form action="" method="POST" class="btn-action">
                     <?php if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
                         echo '<button type="submit" name="logout">Đăng xuất</button>';
