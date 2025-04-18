@@ -17,16 +17,6 @@ if(!isset($_SESSION['user']) && $_SESSION['user'][2] != 1 || $_SESSION['user'][2
         </label>
 
         <div class="header-menu">
-            <div class="notify-icon">
-                <span class="las la-envelope"></span>
-                <span class="notify">4</span>
-            </div>
-
-            <div class="notify-icon">
-                <span class="las la-bell"></span>
-                <span class="notify">3</span>
-            </div>
-
             <form action="" method="POST" class="user">
                 <div class="bg-img" style="background-image: url(/humg-dashboard/admin/assets/img/avatar.jpg)"></div>
 
