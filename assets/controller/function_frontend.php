@@ -198,37 +198,6 @@ function select_product()
 
 
         }
-
-        // Nếu người dùng nhấn vào truyện premium
-        if (isset($_POST['buy_premium'])) {
-            if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
-                $email = $_SESSION['user'][1];
-
-                // Lay coin cua nguoi dung;
-                $sql_select_coin_user  = "SELECT coin from user WHERE email = ?";
-                $stmt_select_coin_user = $pdo->prepare($sql_select_coin_user);
-                $stmt_select_coin_user->execute([$email]);
-                $coin_of_user = $stmt_select_coin_user->fetchColumn();
-
-                if ($comic_price <= $coin_of_user) {
-                    echo '<script>
-                var x = confirm("Bạn có chắc muốn mua không ?");
-                var email = "' . $email . '"; // Sử dụng giá trị của biến PHP $email
-                var comic_id = "' . $comic_id . '";
-                var coin_of_user = "' . $coin_of_user . '";
-                var comic_price = "' . $comic_price . '";
-
-                if(x) {
-                    location.href=`buy_comic_premium.php?email=${email}&comic_id=${comic_id}&coin_of_user=${coin_of_user}&comic_price=${comic_price}`;
-                }
-            </script>';
-                } else {
-                    echo '<script>alert("Bạn không đủ kim cương!")</script>';
-                }
-            } else {
-                echo '<script>location.href="login.php"</script>';
-            }
-        }
     }
 }
 
